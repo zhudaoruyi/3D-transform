@@ -103,4 +103,4 @@ if __name__ == '__main__':
     # res = ImageTr.rotate_along_axis(phi=ang, dx=100, dy=100)  # rotate around y axis
     res = ImageTr.rotate_along_axis(gamma=ang, dx=100, dy=100)  # rotate around z axis
     show_image("res", res)
-    save_image('images/1_rz{}.jpg'.format(str(ang).zfill(3)), res)
+    save_image('images/1_rz{}.jpg'.format(str(ang).zfill(3)), crop_roi(res))

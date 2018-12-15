@@ -1,7 +1,7 @@
 from math import pi
 import cv2
 
-__all__ = ["load_image", "get_rad", "show_image", "save_image"]
+__all__ = ["load_image", "get_rad", "show_image", "save_image", "crop_roi"]
 
 
 def load_image(img_path, shape=None):
@@ -40,3 +40,16 @@ def deg_to_rad(deg):
 
 def rad_to_deg(rad):
     return rad * 180.0 / pi
+
+
+def crop_roi(img, gray=False):
+    if gray:
+        grey = img
+    else:
+        grey = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    ret, thresh = cv2.threshold(grey, 10, 255, cv2.THRESH_BINARY)
+    out = cv2.findContours(thresh, 1, 2)
+    cnt = out[0]
+    x, y, w, h = cv2.boundingRect(cnt)
+    crop = img[y:y+h, x:x+w]
+    return crop
