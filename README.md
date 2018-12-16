@@ -1,6 +1,6 @@
-# 沿指定轴的投影变换
+# 沿指定轴的透视变换
 ## Perspective transformation along specified axis
-图像的3D投影变换，绕x轴旋转、绕y轴旋转、绕z轴旋转
+图像的3D透视变换，绕x轴旋转、绕y轴旋转、绕z轴旋转
 
 ##### 原始图像  origin image
 
